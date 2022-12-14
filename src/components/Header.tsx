@@ -1,6 +1,7 @@
 import '../style/Header.css';
 import {SearchSharp, ShoppingBasketRounded} from '@mui/icons-material'
 import {useAppSelector} from '../app/hooks'
+import {Link} from 'react-router-dom';
 
 export const Header = () => {
     const basketItems = useAppSelector((state) => state.basket)
@@ -38,10 +39,12 @@ export const Header = () => {
                            Prime
                        </span>
                    </div>
-                   <div className="header__optionBasket">
-                        <ShoppingBasketRounded/>
-                        <span className="header__optionLineTwo header__basketCount">{basketItems.basketTotalQuantity}</span>
-                   </div>
+                   <Link to='/checkout'>
+                    <div className="header__optionBasket">
+                            <ShoppingBasketRounded/>
+                            <span className="header__optionLineTwo header__basketCount">{basketItems.basketTotalQuantity}</span>
+                    </div>
+                   </Link>
             </div>
         </div>
     )

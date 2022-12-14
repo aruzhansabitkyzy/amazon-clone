@@ -2,9 +2,10 @@ import '../style/Checkout.css';
 import {Product} from './Product';
 import {useAppSelector} from '../app/hooks'
 import {ProductItem} from '../interface/ProductItem';
+import {Subtotal} from './Subtotal';
 
 export const Checkout = () => {
-    const basketItems = useAppSelector((state) => state.basket)
+    const basketItems = useAppSelector((state) => state.basket) 
     return(
         <div className='checkout'>
              <div className="checkout__left">
@@ -15,13 +16,13 @@ export const Checkout = () => {
                     </h2>
                     
                         {basketItems?.basketItems.map(item => (
-                            <Product title= {item.title} rating = {item.rating} image= {item.image} priceFrom = {item.priceFrom} priceTo={item.priceTo}/>
+                            <Product id={item.id} title= {item.title} rating = {item.rating} image= {item.image} priceFrom = {item.priceFrom} priceTo={item.priceTo} stage="basket"/>
                          ))}
                     
                  </div>
              </div>
              <div className="checkout__right">
-                <h2>The subtotal will go here {basketItems.basketTotalAmount}</h2>
+                <Subtotal /> 
              </div>
         </div>
     )
