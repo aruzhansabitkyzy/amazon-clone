@@ -4,16 +4,25 @@ import './App.css';
 import { Header } from './components/Header';
 import {Home} from './components/Home'
 import {Checkout} from './components/Checkout';
+import {Login} from './components/Login';
+import {Register} from './components/Register';
 import {BrowserRouter, Route, Routes} from 'react-router-dom';
+import AuthRoute from './components/AuthRoute';
 
 function App() {
   return (
     <BrowserRouter>
     <div className="app">
-        <Header />
         <Routes>
-            <Route path='/checkout' element={<Checkout />} />
-            <Route path='/' element={ <Home />} />
+            <Route path='/register' element={<Register />} />
+            <Route path='/login' element={<Login />} />
+            <Route path='/checkout' element={[<Header /> , <Checkout />]} />
+            <Route path='/' element={
+            <AuthRoute>
+              <Header />
+              <Home />
+            </AuthRoute> 
+            } />
         </Routes>
        
     </div>
