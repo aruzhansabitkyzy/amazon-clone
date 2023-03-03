@@ -3,7 +3,7 @@ import '../style/Subtotal.css';
 var CurrencyFormat = require('react-currency-format');
 
 export const Subtotal = () => {
-    const basketItems = useAppSelector((state) => state.basket);
+    const basketItems = useAppSelector((state) => state.basket.basket);
 return (
     <div className='subtotal'>
     <CurrencyFormat

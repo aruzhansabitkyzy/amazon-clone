@@ -5,7 +5,7 @@ import {actions} from '../app/reducer';
 import {useState,useEffect} from 'react';
 export const Product: React.FC<ProductItem> = ({id,title, rating,image, priceFrom, priceTo, stage}) => {
     const dispatch = useAppDispatch();
-    const basketItems = useAppSelector((state) => state.basket) 
+    const basketItems = useAppSelector((state) => state.basket.basket) 
     const [buttonText, setButtonText] = useState("Add to Basket");
     useEffect(() => {
         if(basketItems.basketItems.findIndex(item => item.id == id) < 0) {

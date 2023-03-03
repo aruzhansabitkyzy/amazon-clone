@@ -3,7 +3,8 @@ import {configureStore} from '@reduxjs/toolkit';
 import basketSlice from './reducer';
 const store=  configureStore({
     reducer: {
-        basket: basketSlice
+        basket: basketSlice,
+        // user: userSlice
     }
 });
 export default store;
