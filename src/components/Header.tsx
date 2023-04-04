@@ -24,7 +24,7 @@ export const Header = () => {
                                 Hello, {user.currentUser}
                             </span>
                             <span className='header__optionLineTwo'>
-                                Sign in
+                                {user ? 'Sign out' : 'Sign in'}
                             </span>
                         </div>
                    </Link>

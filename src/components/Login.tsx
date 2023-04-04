@@ -1,9 +1,9 @@
 import '../style/Login.css';
 import {Link, useNavigate} from 'react-router-dom';
 import {useState, useEffect} from 'react';
-import {auth} from '../config/firebase';
+import { default as axios } from 'axios'
 import { signInWithEmailAndPassword } from 'firebase/auth';
-import { redirect } from 'react-router-dom';
+import {auth} from '../config/firebase';
 
 export const Login = () => {
    const [email, setEmail] = useState('');
@@ -11,31 +11,24 @@ export const Login = () => {
    const [logged, setLogged] = useState(localStorage.getItem(localStorage.getItem("authenticated")|| ''));
    const navigate = useNavigate();
 
-//    useEffect(() => 
-//    {
-//         if(logged != '') {
-//             navigate("/");
-//         }
-//    }, [])
-
   
    async function signIn(e: React.FormEvent<HTMLFormElement>) :  Promise<void>{
       e.preventDefault();
-        await signInWithEmailAndPassword(auth, email, password)
-        .then((userCredential)  => {
-            const user= userCredential.user;
-            if(user) { 
-                console.log("logged")
-                navigate("/");
-                localStorage.setItem('authenticated' , JSON.stringify(user))
-                setLogged(user + "")
-            }
-            console.log(user);
-        })
-        .catch((error) => {
-            console.log(error);
-        })
-   }
+      await signInWithEmailAndPassword(auth, email, password)
+      .then((userCredential)  => {
+          const user= userCredential.user;
+          if(user) { 
+              console.log("logged")
+              navigate("/");
+              localStorage.setItem('authenticated' , JSON.stringify(user))
+              setLogged(user + "")
+          }
+          console.log(user);
+      })
+      .catch((error) => {
+          console.log(error);
+      })
+ }
 
 
 

@@ -4,20 +4,7 @@ import {ProductItem} from '../interface/ProductItem';
 
 interface UserState{
     isAuthenticated: boolean,
-    currentUser: string
-    //    uid:string,
-    //    email: string
-    //    emailVerified: boolean,
-    //    isAnonymous : boolean,
-    //    providerData: [],
-    //    stsTokenManager: {},
-    //    accessToken: string,
-    //    expirationTime: number,
-    //    createdAt: string,
-    //    lastLoginAt: string,
-    //    apiKey: string ,
-    //    appName: string
-    // } | null
+    currentUser: string     
 } 
 
 const initialUserState:UserState = {

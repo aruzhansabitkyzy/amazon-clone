@@ -19,11 +19,14 @@ function App() {
   const user=  useAppSelector((state) => state.basket.user)
 
   useEffect(() => {
-    console.log(user)
+    // console.log(user)
      auth.onAuthStateChanged(authUser => {
-      console.log(JSON.stringify(authUser))
+      // console.log(JSON.stringify(authUser))
         if(authUser) {
-           dispatch(actions.authenticatedUser(authUser))
+          //  console.log(JSON.stringify(authUser));
+          //  console.log(authUser.refreshToken)
+
+           dispatch(actions.authenticatedUser(authUser.refreshToken));
         }
         else { 
           dispatch(actions.logoutUser());
