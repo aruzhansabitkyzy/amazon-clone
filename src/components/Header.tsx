@@ -5,8 +5,8 @@ import {Link} from 'react-router-dom';
 
 export const Header = () => {
     const basketItems = useAppSelector((state) => state.basket.basket)
-    const user = useAppSelector(state => state.basket.user)
-    console.log(user.currentUser)
+    const user = useAppSelector((state) => state.user.user)
+    console.log(user.isAuthenticated + "is cur")
     return (
         <div className='header'>
             <Link to='/'>

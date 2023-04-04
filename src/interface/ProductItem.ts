@@ -7,6 +7,10 @@ export interface ProductItem {
     priceTo?:string,
     stage: string
 } 
+export interface UserState{
+    isAuthenticated: boolean,
+    currentUser: string     
+} 
 
 // export interface ProductItem {
 //     basket: ProductType[];

@@ -1,25 +1,14 @@
 import {createSlice, PayloadAction} from '@reduxjs/toolkit';
-import {ProductItem} from '../interface/ProductItem';
+import {ProductItem, UserState} from '../interface/ProductItem';
 
 
-interface UserState{
-    isAuthenticated: boolean,
-    currentUser: string     
-} 
-
-const initialUserState:UserState = {
-    isAuthenticated: false,
-    currentUser: ''
-}
 
 const initialState = {
    basket : {
     basketItems: [] as ProductItem[],
     basketTotalQuantity: 0,
     basketTotalAmount: 0
-   },
-
-   user: initialUserState
+   }
 }
 
 const basketSlice = createSlice({
@@ -39,27 +28,8 @@ const basketSlice = createSlice({
     }
 
 })
-const userSlice = createSlice({
-    name: 'user',
-    initialState,
-    reducers: {
-         authenticatedUser(state, action: PayloadAction<UserState['currentUser']>) {
-            state.user.isAuthenticated = true
-            state.user.currentUser = action.payload
-         },
-         logoutUser(state) {
-            state.user.isAuthenticated = false
-            state.user.currentUser = '' 
-         }
-    }
-})
-
-
-export const actions = {
-    ...basketSlice.actions,
-    ...userSlice.actions
-};
-export default basketSlice.reducer;
 
 
 
+export const action = basketSlice.actions
+export default basketSlice.reducer

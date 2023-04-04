@@ -3,7 +3,7 @@ import {useEffect} from 'react';
 import logo from './logo.svg';
 import {onAuthStateChanged} from 'firebase/auth';
 import {auth} from './config/firebase';
-import {actions} from './app/reducer'
+import {action} from './app/userReducer';
 import './App.css';
 import { Header } from './components/Header';
 import {Home} from './components/Home'
@@ -16,7 +16,7 @@ import { useAppDispatch, useAppSelector } from './app/hooks';
 
 function App() {
   const dispatch = useAppDispatch();
-  const user=  useAppSelector((state) => state.basket.user)
+  const user=  useAppSelector((state) => state.user.user)
 
   useEffect(() => {
     // console.log(user)
@@ -26,10 +26,10 @@ function App() {
           //  console.log(JSON.stringify(authUser));
           //  console.log(authUser.refreshToken)
 
-           dispatch(actions.authenticatedUser(authUser.refreshToken));
+           dispatch(action.authenticatedUser(authUser.email ?? ''));
         }
         else { 
-          dispatch(actions.logoutUser());
+          dispatch(action.logoutUser());
         } 
      })
   }, [])

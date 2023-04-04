@@ -1,7 +1,7 @@
 import '../style/Product.css';
 import {ProductItem} from  '../interface/ProductItem'
 import {useAppDispatch, useAppSelector} from '../app/hooks';
-import {actions} from '../app/reducer';
+import {action} from '../app/reducer';
 import {useState,useEffect} from 'react';
 export const Product: React.FC<ProductItem> = ({id,title, rating,image, priceFrom, priceTo, stage}) => {
     const dispatch = useAppDispatch();
@@ -17,11 +17,11 @@ export const Product: React.FC<ProductItem> = ({id,title, rating,image, priceFro
       }, []);
     const buttonClicked = () => {
         if(buttonText == 'Add to Basket') {
-            dispatch(actions.addToBasket({id,title, rating, image, priceFrom, priceTo, stage}));
+            dispatch(action.addToBasket({id,title, rating, image, priceFrom, priceTo, stage}));
             setButtonText("In the Basket");
         }
         else {
-            dispatch(actions.removeFromBasket({id,title, rating, image, priceFrom, priceTo, stage}))
+            dispatch(action.removeFromBasket({id,title, rating, image, priceFrom, priceTo, stage}))
             setButtonText("Add to Basket");
         }
     }
@@ -48,7 +48,7 @@ export const Product: React.FC<ProductItem> = ({id,title, rating,image, priceFro
             {stage == 'main' ? (
                <button onClick = {buttonClicked}>{buttonText}</button>
                ) :              
-            (<button onClick = {() => dispatch(actions.removeFromBasket({id, title, rating, image, priceFrom, priceTo, stage}))}>Remove from Basket</button>)
+            (<button onClick = {() => dispatch(action.removeFromBasket({id, title, rating, image, priceFrom, priceTo, stage}))}>Remove from Basket</button>)
             }
         </div>
     )
