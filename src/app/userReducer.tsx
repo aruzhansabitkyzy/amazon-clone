@@ -7,6 +7,7 @@ const initialUserState:UserState = {
     currentUser: ''
 }
 
+
 const initialState = {
     user: initialUserState
  }

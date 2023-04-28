@@ -7,6 +7,7 @@ import {action} from './app/userReducer';
 import './App.css';
 import { Header } from './components/Header';
 import {Home} from './components/Home'
+import {Payment} from './components/Payment';
 import {Checkout} from './components/Checkout';
 import {Login} from './components/Login';
 import {Register} from './components/Register';
@@ -38,6 +39,7 @@ function App() {
     <BrowserRouter>
     <div className="app">
         <Routes>
+            <Route path='/payment' element={[<Header /> , <Payment /> ]} />
             <Route path='/register' element={<Register />} />
             <Route path='/login' element={<Login />} />
             <Route path='/checkout' element={[<Header /> , <Checkout />]} />

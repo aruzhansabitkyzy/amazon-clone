@@ -1,9 +1,12 @@
 import {useAppSelector} from '../app/hooks';
 import '../style/Subtotal.css';
+import { useNavigate } from 'react-router-dom';
 var CurrencyFormat = require('react-currency-format');
+
 
 export const Subtotal = () => {
     const basketItems = useAppSelector((state) => state.basket.basket);
+    const navigate = useNavigate();
 return (
     <div className='subtotal'>
     <CurrencyFormat
@@ -22,7 +25,7 @@ return (
           thousandSeparator={true}
           prefix= {"€"}
     />
-    <button>Proceed to Checkout</button>
+    <button onClick={(e)=> navigate('/payment')}>Proceed to Checkout</button>
     </div>
 )
 }

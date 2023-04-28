@@ -10,7 +10,8 @@ export const Header = () => {
     return (
         <div className='header'>
             <Link to='/'>
-            <img className='header__logo' src={require("../img/amazon_PNG11.png")}/></Link>
+                 <img className='header__logo' src={require("../img/amazon_PNG11.png")}/>
+            </Link>
             <div className='header__search'>
                 <input type='text' className='header__searchInput'/>
                 <span className='search-button'>

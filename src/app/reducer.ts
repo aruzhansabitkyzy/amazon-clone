@@ -22,13 +22,18 @@ const basketSlice = createSlice({
         },
         removeFromBasket(state, action:PayloadAction<ProductItem>) {
              state.basket.basketItems.splice(state.basket.basketItems.findIndex(item => item.id = action.payload.id), 1)
-             state.basket.basketTotalAmount -= +action.payload.priceFrom
              state.basket.basketTotalQuantity -= 1
+             if(state.basket.basketTotalQuantity == 0) {
+                state.basket.basketTotalAmount = 0
+             }
+             else {
+                state.basket.basketTotalAmount -= +action.payload.priceFrom
+             }
+             
         } 
     }
 
 })
-
 
 
 export const action = basketSlice.actions
