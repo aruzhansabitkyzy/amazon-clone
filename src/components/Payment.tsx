@@ -13,7 +13,7 @@ export const Payment =() => {
                          <h3>Delivery Address</h3>
                     </div>
                     <div className='payment__address'>
-                        <p>User email</p>
+                        <p>{user.currentUser}</p>
                         <p>123 React Lane</p>
                         <p>Los Angeles, CA</p>
                     </div>
